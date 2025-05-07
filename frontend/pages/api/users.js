@@ -1,6 +1,6 @@
-export default async function handler(req, res) {
-  const backendUrl = 'http://localhost:4000/users';
+const backendUrl = process.env.NEXT_PUBLIC_API_URL + '/users';
 
+export default async function handler(req, res) {
   if (req.method === 'GET') {
     const response = await fetch(backendUrl);
     const data = await response.json();
