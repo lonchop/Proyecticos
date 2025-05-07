@@ -1,4 +1,10 @@
-const backendUrl = process.env.NEXT_PUBLIC_API_URL + '/users';
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+if (!apiUrl) {
+  throw new Error('La variable de entorno NEXT_PUBLIC_API_URL no está definida.');
+}
+
+const backendUrl = apiUrl + '/users';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
